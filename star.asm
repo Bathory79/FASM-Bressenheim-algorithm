@@ -52,7 +52,7 @@ buf: times 5 db 20h, '$'
 segment seg_kod use16
 include 'bresenham.inc'
 include 'fill.inc'
-include 'mouse.inc'
+
 ;****************************************************************
 ;****************************************************************
 
@@ -69,7 +69,7 @@ poczatek:
 	mov ax,0A000h
 	mov es,ax
 
-;przerwanie wywo³uj¹ce napis
+;przerwanie wywoÂ³ujÂ¹ce napis
 	mov ah,09h
 	mov dx,napis
 	int 21h
@@ -97,60 +97,12 @@ check_keyboard:
 			jmp check_keyboard
 koniec:
 key
-;include 'cords1.inc'
-;include 'cords2.inc'
-include 'figura3.inc'
+include 'cords1.inc'
+include 'cords2.inc'
 
 
 key
 key
-
-	; call mouse_show
-;	call mouse_show_color_box
-	
-; inf_test:
-		; call mouse_paint
-		; call mouse_status
-		
-		; test bl,1
-		; cmp bl,1
-		; je omin_al
-;		jnz omin_al
-;		test bl,0
-;		jnz omin_al
-;		test bl,1
-;		jz omin_al
-
-
-		; inc al
-	; omin_al:
-		; call mouse_show_color_box
-		; jmp inf_test
-	
-	
-	
-; infinite_loop:
-	; call mouse_status
-;	test bl,00000010b
-	; test bl,2
-	; jz mouse_inkrementuj_kolor
-;	test bl,00000001b
-	; test bl,1
-	; jz mouse_rysuj
-	
-; mouse_inkrementuj_kolor:
-	; inc al
-	; call mouse_show_color_box
-;	test bl,00000001b		;jezeli oba przyciski myszy sa w tym samym czasie wcisniete to koniec
-	; test bl,1
-	; jz koniec_infinite_loopa
-; jmp infinite_loop
-; mouse_rysuj:
-	; call mouse_paint
-; jmp infinite_loop
-
-; koniec_infinite_loopa:
-
 
 
 
